@@ -10,6 +10,7 @@ import FanQuests from "./components/FanQuests";
 import { Collab, FanWall, Footer } from "./components/Community";
 import MobileBottomBar from "./components/MobileBottomBar";
 import InstallPwaBanner from "./components/InstallPwaBanner";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { useRevealObserver } from "./hooks";
 import { ArrowUp } from "./components/Icons";
 
@@ -125,6 +126,7 @@ export default function App() {
       <BackToTop />
       <MobileBottomBar />
       <InstallPwaBanner />
+      <SpeedInsights />
     </div>
   );
 }

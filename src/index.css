@@ -151,8 +151,8 @@ body {
 
 .glass {
   background: rgba(14, 14, 26, 0.66);
-  backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   border: 1px solid rgba(245, 242, 233, 0.1);
 }
 
