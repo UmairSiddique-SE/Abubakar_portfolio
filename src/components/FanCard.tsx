@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { CATEGORIES, HANDLE, PROFILE } from "../data";
 import { loadJSON, saveJSON, toast } from "../hooks";
-import { CheckIcon, CopyIcon, CrownIcon, FlameIcon, HeartIcon, MapPinIcon, SparkIcon, TikTokIcon } from "./Icons";
+import { CheckIcon, CopyIcon, CrownIcon, FlameIcon, MapPinIcon, TikTokIcon } from "./Icons";
 
 type Card = { name: string; city: string; vibe: string; code: string; since: string };
 
@@ -25,8 +25,6 @@ const SKINS = [
   { name: "Mint Fresh", bg: ["#04140d", "#07271c", "#0a2e2a"], glows: ["#3ddc97", "#25f4ee", "#ffb62e"] },
 ];
 
-const ACCENTS = ["#fe2c55", "#25f4ee", "#ffb62e", "#8f5bff", "#3ddc97", "#f5f2e9"];
-
 const DEFAULT_STYLE: CardStyle = {
   skin: 0,
   accent: "#fe2c55",
@@ -38,9 +36,6 @@ const DEFAULT_STYLE: CardStyle = {
   barcode: true,
   avatar: true,
 };
-
-const GRAIN_URL =
-  "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
 const VIBES = CATEGORIES.map((c) => c.title);
 
@@ -208,28 +203,11 @@ async function drawCard(card: Card, st: CardStyle): Promise<HTMLCanvasElement> {
         resolve();
       };
       img.onerror = () => resolve();
-      img.src = "/images/tiktok-avatar.jpg";
+      img.src = "/images/abubakar-hero.jpg";
     });
   }
 
   return cv;
-}
-
-function Toggle({ on, onClick, label }: { on: boolean; onClick: () => void; label: string }) {
-  return (
-    <button
-      onClick={onClick}
-      aria-pressed={on}
-      className={`flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-[11.5px] font-bold transition-all ${
-        on ? "border-mint/50 bg-mint/12 text-mint" : "border-edge bg-ink/50 text-fog hover:text-cream"
-      }`}
-    >
-      <span className={`grid h-3.5 w-3.5 place-items-center rounded-full border ${on ? "border-mint bg-mint text-ink" : "border-fog/50"}`}>
-        {on && <CheckIcon className="h-2.5 w-2.5" />}
-      </span>
-      {label}
-    </button>
-  );
 }
 
 export default function FanCard() {
@@ -238,7 +216,7 @@ export default function FanCard() {
   const [city, setCity] = useState(saved?.city ?? "");
   const [vibe, setVibe] = useState(saved?.vibe ?? VIBES[0]);
   const [card, setCard] = useState<Card | null>(saved);
-  const [st, setSt] = useState<CardStyle>(() => ({ ...DEFAULT_STYLE, ...loadJSON<Partial<CardStyle>>("ma-card-style", {}) }));
+  const [st] = useState<CardStyle>(() => ({ ...DEFAULT_STYLE, ...loadJSON<Partial<CardStyle>>("ma-card-style", {}) }));
   const [busy, setBusy] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -255,42 +233,6 @@ export default function FanCard() {
     vibe,
     code: "MA-••••",
     since: "aaj",
-  };
-
-  const set = <K extends keyof CardStyle>(k: K, v: CardStyle[K]) => setSt((s) => ({ ...s, [k]: v }));
-
-  const randomize = () => {
-    setSt({
-      skin: Math.floor(Math.random() * SKINS.length),
-      accent: ACCENTS[Math.floor(Math.random() * (ACCENTS.length - 1))],
-      glow: 40 + Math.floor(Math.random() * 55),
-      nameScale: 85 + Math.floor(Math.random() * 31),
-      pattern: (["dots", "lines", "none"] as const)[Math.floor(Math.random() * 3)],
-      grain: Math.random() > 0.4,
-      ring: true,
-      barcode: Math.random() > 0.3,
-      avatar: true,
-    });
-    toast("Naya look roll ho gaya 🎲");
-  };
-
-  const reset = () => {
-    setSt(DEFAULT_STYLE);
-    toast("Style wapas original pe ↺");
-  };
-
-  const generate = () => {
-    if (!valid) return;
-    const c: Card = {
-      name: name.trim(),
-      city: city.trim(),
-      vibe,
-      code: card?.code ?? makeCode(),
-      since: card?.since ?? new Date().toLocaleDateString("en-GB", { day: "2-digit", month: "short", year: "numeric" }),
-    };
-    setCard(c);
-    window.dispatchEvent(new CustomEvent("ma-quest", { detail: "card" }));
-    toast(`Khush aamdeed, ${c.name.split(" ")[0]}! Card ${c.code} ready 🎉`);
   };
 
   const download = async () => {
@@ -422,7 +364,7 @@ export default function FanCard() {
                       </div>
                       <span className="relative shrink-0">
                         <span className="absolute -inset-1 rounded-full grad-brand" />
-                        <img src="/images/tiktok-avatar.jpg" alt="TikTok Avatar" className="relative h-12 w-12 rounded-full border-2 border-ink object-cover sm:h-14 sm:w-14" />
+                        <img src="/images/abubakar-hero.jpg" alt="Mahar Abubakar" className="relative h-12 w-12 rounded-full border-2 border-ink object-cover sm:h-14 sm:w-14" />
                       </span>
                     </div>
 

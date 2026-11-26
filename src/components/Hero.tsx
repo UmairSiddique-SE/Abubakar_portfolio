@@ -19,15 +19,6 @@ const TICKER = [
   { text: "PUNJAB TO THE WORLD", color: "text-tik" },
 ];
 
-const TILES = [
-  { label: "Comedy", grad: "from-[#fe2c55]/70 to-[#8f5bff]/60" },
-  { label: "Trend", grad: "from-[#25f4ee]/60 to-[#8f5bff]/60" },
-  { label: "Vlog", grad: "from-[#ffb62e]/70 to-[#fe2c55]/60" },
-  { label: "Squad", grad: "from-[#8f5bff]/70 to-[#25f4ee]/50" },
-  { label: "Comedy", grad: "from-[#3ddc97]/60 to-[#25f4ee]/60" },
-  { label: "Trend", grad: "from-[#fe2c55]/70 to-[#ffb62e]/60" },
-];
-
 function StatItem({ stat, active, index }: { stat: (typeof STATS)[number]; active: boolean; index: number }) {
   const value = useCountUp(stat.value, active, 1700 + index * 200);
   const isGoal = "goal" in stat && stat.goal;
