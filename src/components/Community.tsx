@@ -85,8 +85,7 @@ export function FanWall() {
             Deewar-e-<span className="grad-text">Mohabbat</span>
           </h2>
           <p data-reveal className="mt-4 max-w-md text-fog">
-            {all.length}+ messages, aik hi baat — <span className="text-cream">yeh family hai.</span> Apna message chhoro,
-            ho sakta hai agli video mein shoutout mil jaye. 👀
+            {all.length} community messages. Apna message chhoro aur Mahar Abubakar ki creator community ka hissa bano.
           </p>
 
           <form data-reveal onSubmit={submit} className="mt-8 space-y-4 rounded-3xl border border-edge bg-panel/70 p-6">
@@ -231,11 +230,16 @@ export function Collab() {
     if (form.message.trim().length < 10) return setError("Proposal thora detail mein likhein (kam az kam 10 letters).");
     setError("");
     setSending(true);
+    const subject = encodeURIComponent(`Mahar Abubakar — ${form.type}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\nBrand: ${form.brand || "N/A"}\nType: ${form.type}\n\nProposal:\n${form.message}`
+    );
+    window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
     window.setTimeout(() => {
       setSending(false);
       setDone(true);
-      toast("Proposal mil gaya! 48 hours mein reply 📩");
-    }, 700);
+      toast("Proposal details email app mein ready hain 📩");
+    }, 400);
   };
 
   const copyEmail = async () => {
@@ -324,8 +328,7 @@ export function Collab() {
                   </span>
                   <h3 className="mt-6 font-display text-2xl font-extrabold text-cream">Ho gaya! 🎉</h3>
                   <p className="mt-3 max-w-xs text-fog">
-                    Proposal team ko mil gaya hai. Mahar Ilyas 48 hours ke andar <span className="text-cream">{form.email}</span> pe
-                    reply karega.
+                    Aapki email app mein proposal draft open ho gaya hai. Send kar dein — reply isi email address par milega.
                   </p>
                   <button
                     onClick={() => {
