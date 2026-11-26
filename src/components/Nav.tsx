@@ -133,32 +133,54 @@ export default function Nav() {
 
         {/* mobile menu */}
         <div
-          className={`lg:hidden overflow-hidden border-b border-edge bg-ink/95 backdrop-blur-xl transition-[max-height,opacity] duration-400 ${
-            open ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0 border-b-0"
+          className={`lg:hidden overflow-hidden border-b border-edge bg-ink/95 backdrop-blur-2xl transition-[max-height,opacity] duration-400 ${
+            open ? "max-h-[85vh] opacity-100 overflow-y-auto" : "max-h-0 opacity-0 border-b-0"
           }`}
         >
-          <ul className="space-y-1 px-5 py-4">
+          {/* Mobile Profile Card Header in Menu */}
+          <div className="flex items-center gap-3.5 border-b border-edge/80 bg-panel/60 p-4 mx-4 mt-3 rounded-2xl">
+            <img src="/images/abubakar-hero.jpg" alt="Mahar Abubakar" className="h-12 w-12 rounded-xl object-cover border border-white/20 shadow-md" />
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-1.5">
+                <span className="font-display text-sm font-bold text-cream truncate">Mahar Abubakar</span>
+                <span className="text-[10px] text-tik font-bold bg-tik/15 px-1.5 py-0.5 rounded-full">PRO</span>
+              </div>
+              <p className="font-mono text-xs text-fog/80 truncate">{HANDLE}</p>
+            </div>
+            <a
+              href={SOCIALS.tiktok}
+              target="_blank"
+              rel="noreferrer"
+              className="shrink-0 rounded-xl bg-tik px-3 py-1.5 text-xs font-bold text-white shadow"
+            >
+              Follow
+            </a>
+          </div>
+
+          <ul className="grid grid-cols-2 gap-2 px-4 py-3">
             {LINKS.map((l, i) => (
               <li key={l.id}>
                 <a
                   href={`#${l.id}`}
                   onClick={() => setOpen(false)}
-                  className={`flex items-center justify-between rounded-xl px-4 py-3 font-display text-sm font-semibold tracking-wide transition-colors ${
-                    active === l.id ? "bg-panel text-ice" : "text-fog hover:bg-panel hover:text-cream"
+                  className={`flex items-center justify-between rounded-xl px-3.5 py-3 font-display text-[13px] font-semibold tracking-wide transition-all ${
+                    active === l.id
+                      ? "bg-gradient-to-r from-tik/20 to-grape/20 border border-tik/40 text-cream shadow-sm"
+                      : "bg-panel/40 border border-edge/50 text-fog hover:bg-panel hover:text-cream"
                   }`}
                 >
-                  {l.label}
-                  <span className="text-[10px] text-fog/60">0{i + 1}</span>
+                  <span className="truncate">{l.label}</span>
+                  <span className="text-[10px] font-mono text-fog/50">0{i + 1}</span>
                 </a>
               </li>
             ))}
           </ul>
-          <div className="flex items-center gap-3 border-t border-edge px-6 py-4">
-            <span className="text-xs text-fog">{HANDLE}</span>
-            <span className="ml-auto flex gap-2">
-              <a href={SOCIALS.tiktok} target="_blank" rel="noreferrer" aria-label="TikTok" className="grid h-9 w-9 place-items-center rounded-lg border border-edge text-fog hover:text-ice"><TikTokIcon className="h-4 w-4" /></a>
-              <a href={`mailto:${EMAIL}`} aria-label="Email" className="grid h-9 w-9 place-items-center rounded-lg border border-edge text-fog hover:text-mint"><MailIcon className="h-4 w-4" /></a>
-            </span>
+          <div className="flex items-center justify-between border-t border-edge/80 px-5 py-4 bg-coal/40">
+            <span className="text-xs font-mono text-ice font-semibold">{HANDLE}</span>
+            <div className="flex items-center gap-2">
+              <a href={SOCIALS.tiktok} target="_blank" rel="noreferrer" aria-label="TikTok" className="grid h-9 w-9 place-items-center rounded-xl border border-edge bg-panel/80 text-fog hover:text-ice transition-colors"><TikTokIcon className="h-4 w-4" /></a>
+              <a href={`mailto:${EMAIL}`} aria-label="Email" className="grid h-9 w-9 place-items-center rounded-xl border border-edge bg-panel/80 text-fog hover:text-mint transition-colors"><MailIcon className="h-4 w-4" /></a>
+            </div>
           </div>
         </div>
       </header>

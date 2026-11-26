@@ -228,7 +228,7 @@ export default function TikTokLive() {
 
               {status === "fallback" && (
                 <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-b from-white to-neutral-100 px-6 py-10 text-center">
-                  <img src="/images/tiktok-avatar.jpg" alt="funnyvelog607 avatar" className="h-24 w-24 rounded-full border-4 border-white object-cover shadow-xl" />
+                  <img src="/images/abubakar-hero.jpg" alt="Mahar Abubakar avatar" className="h-24 w-24 rounded-full border-4 border-white object-cover shadow-xl" />
                   <h3 className="mt-4 font-display text-xl font-extrabold text-neutral-900">{PROFILE.nickname}</h3>
                   <p className="font-mono text-sm text-neutral-500">{HANDLE}</p>
                   <p className="mt-3 max-w-sm text-sm leading-relaxed text-neutral-600">

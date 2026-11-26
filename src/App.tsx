@@ -10,6 +10,7 @@ import Squad from "./components/Squad";
 import FanCard from "./components/FanCard";
 import FanQuests from "./components/FanQuests";
 import { Collab, FanWall, Footer } from "./components/Community";
+import MobileBottomBar from "./components/MobileBottomBar";
 import { useRevealObserver, useScrollLock } from "./hooks";
 import { ArrowUp } from "./components/Icons";
 
@@ -60,7 +61,7 @@ function BackToTop() {
     <button
       aria-label="Back to top"
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className={`fixed bottom-6 right-6 z-[90] grid h-12 w-12 place-items-center rounded-full grad-brand text-ink shadow-[0_8px_32px_rgba(143,91,255,0.5)] transition-all duration-300 hover:-translate-y-1 ${
+      className={`fixed bottom-20 sm:bottom-6 right-4 sm:right-6 z-[90] grid h-11 w-11 sm:h-12 sm:w-12 place-items-center rounded-full grad-brand text-ink shadow-[0_8px_32px_rgba(143,91,255,0.5)] transition-all duration-300 hover:-translate-y-1 ${
         show ? "translate-y-0 opacity-100" : "pointer-events-none translate-y-6 opacity-0"
       }`}
     >
@@ -145,6 +146,7 @@ export default function App() {
       <Toasts />
       <FanQuests />
       <BackToTop />
+      <MobileBottomBar />
     </div>
   );
 }

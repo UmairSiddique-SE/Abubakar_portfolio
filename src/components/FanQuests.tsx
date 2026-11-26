@@ -104,7 +104,7 @@ export default function FanQuests() {
   }, [done, quests.length]);
 
   return (
-    <div ref={boxRef} className="fixed bottom-6 left-4 z-[90] sm:left-6">
+    <div ref={boxRef} className="fixed bottom-20 sm:bottom-6 left-4 z-[90] sm:left-6">
       {/* panel */}
       <div
         className={`absolute bottom-16 left-0 w-[calc(100vw-2rem)] max-w-[330px] origin-bottom-left rounded-3xl border border-edge bg-panel/95 p-5 shadow-[0_24px_80px_rgba(0,0,0,0.55)] backdrop-blur-xl transition-all duration-300 ${

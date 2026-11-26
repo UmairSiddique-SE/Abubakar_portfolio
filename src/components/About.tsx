@@ -23,12 +23,12 @@ export default function About() {
             <div className="absolute -inset-2 rounded-3xl grad-brand opacity-30 blur-lg" />
             <div className="relative flex items-center gap-4 rounded-2xl border border-cream/12 bg-panel/90 p-5">
               <span className="relative shrink-0">
-                <span className="absolute -inset-1 rounded-full grad-brand" />
+                <span className="absolute -inset-1 rounded-full grad-brand animate-pulse" />
                 <img
-                  src="/images/tiktok-avatar.jpg"
-                  alt="funnyvelog607 — real TikTok display picture"
+                  src="/images/abubakar-hero.jpg"
+                  alt="Mahar Abubakar — Creator Profile"
                   loading="lazy"
-                  className="relative h-16 w-16 rounded-full border-[3px] border-panel object-cover"
+                  className="relative h-16 w-16 rounded-full border-[3px] border-panel object-cover object-center shadow-lg"
                 />
               </span>
               <div className="min-w-0">

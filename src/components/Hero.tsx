@@ -1,11 +1,9 @@
 import { HANDLE, PROFILE, SOCIALS, SQUAD, STATS, compact } from "../data";
 import { useCountUp, useInView } from "../hooks";
-import PhonePlay from "./PhonePlay";
 import {
   ClapperIcon,
   FlameIcon,
   HeartIcon,
-  MapPinIcon,
   PlayIcon,
   TikTokIcon,
   UsersIcon,
@@ -171,7 +169,7 @@ export default function Hero() {
             className="mt-10 flex items-center justify-center gap-4 lg:justify-start"
           >
             <div className="flex -space-x-3">
-              <img src="/images/tiktok-avatar.jpg" alt="funnyvelog607 TikTok avatar" className="h-10 w-10 rounded-full border-2 border-ink object-cover" />
+              <img src="/images/abubakar-hero.jpg" alt="Mahar Abubakar avatar" className="h-10 w-10 rounded-full border-2 border-ink object-cover" />
               {SQUAD.filter((m) => !m.leader).map((m) => (
                 <span
                   key={m.slug}
@@ -189,20 +187,90 @@ export default function Hero() {
         </div>
 
         {/* ——— TikTok profile phone (Pure clean portrait) ——— */}
-        <div data-reveal style={{ "--d": "200ms" } as React.CSSProperties} className="relative z-10 mx-auto w-full max-w-[360px]">
+        <div data-reveal style={{ "--d": "200ms" } as React.CSSProperties} className="relative z-10 mx-auto w-full max-w-[340px] sm:max-w-[380px]">
           <div className="relative animate-floaty">
-            <div className="absolute -inset-3 overflow-hidden rounded-[2.8rem] opacity-75">
+            {/* Glow halo */}
+            <div className="absolute -inset-4 sm:-inset-6 overflow-hidden rounded-[3rem] opacity-80 blur-xl">
               <div className="absolute inset-[-60%] animate-spin-slow bg-[conic-gradient(from_0deg,#25f4ee,#8f5bff,#fe2c55,#ffb62e,#25f4ee)]" />
             </div>
 
-            <div className="relative rounded-[2.5rem] bg-ink p-[3px]">
-              <div className="relative overflow-hidden rounded-[2.3rem] border border-cream/10 bg-coal aspect-[9/16] min-h-[580px]">
-                {/* 100% Pure Abubakar Image */}
-                <img
-                  src="/images/abubakar-hero.jpg"
-                  alt="Mahar Abubakar"
-                  className="absolute inset-0 h-full w-full object-cover object-[center_12%] transition-transform duration-700 hover:scale-105"
-                />
+            {/* Premium Mobile Phone Frame */}
+            <div className="relative rounded-[2.8rem] bg-gradient-to-b from-[#2a2a44] via-[#151525] to-[#0a0a14] p-[3px] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8),0_0_40px_rgba(37,244,238,0.25)]">
+              {/* Phone Outer Edge Ring */}
+              <div className="relative overflow-hidden rounded-[2.6rem] bg-ink border border-white/10">
+                {/* Dynamic Island / Speaker notch */}
+                <div className="absolute top-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 rounded-full bg-black/80 px-3 py-1 backdrop-blur-md border border-white/10 shadow-lg">
+                  <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[10px] font-mono tracking-widest text-white/90 uppercase font-bold">LIVE • 4K</span>
+                  <div className="h-2 w-2 rounded-full bg-tik" />
+                </div>
+
+                {/* Floating Top Badge */}
+                <div className="absolute top-12 left-4 z-20 flex items-center gap-1.5 rounded-full bg-black/60 backdrop-blur-md border border-tik/40 px-2.5 py-1 text-[11px] font-bold text-white shadow-lg">
+                  <span className="text-tik">👑</span>
+                  <span>Mahar Abubakar</span>
+                </div>
+
+                {/* TikTok Badge Right */}
+                <div className="absolute top-12 right-4 z-20 flex items-center gap-1 rounded-full bg-tik/90 backdrop-blur-md px-2.5 py-1 text-[11px] font-extrabold text-white shadow-[0_0_15px_rgba(254,44,85,0.6)]">
+                  <span>TikTok</span>
+                </div>
+
+                {/* Main Portrait Visual */}
+                <div className="relative overflow-hidden aspect-[9/16] min-h-[500px] sm:min-h-[580px] bg-coal">
+                  <img
+                    src="/images/abubakar-hero.jpg"
+                    alt="Mahar Abubakar"
+                    className="absolute inset-0 h-full w-full object-cover object-center transition-transform duration-700 hover:scale-105"
+                  />
+
+                  {/* Subtle Gradient Overlays for readability and premium feel */}
+                  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-ink via-ink/60 to-transparent" />
+                  <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-ink/70 via-ink/20 to-transparent" />
+
+                  {/* Floating Action Bar (TikTok Style) on right */}
+                  <div className="absolute right-3 bottom-20 z-20 flex flex-col items-center gap-3.5">
+                    <div className="flex flex-col items-center">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white shadow-lg transition-transform hover:scale-110 active:scale-95">
+                        <HeartIcon className="h-5 w-5 text-tik fill-tik" />
+                      </div>
+                      <span className="mt-1 text-[10px] font-bold text-white drop-shadow">99.8K</span>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white shadow-lg transition-transform hover:scale-110 active:scale-95">
+                        <FlameIcon className="h-5 w-5 text-volt" />
+                      </div>
+                      <span className="mt-1 text-[10px] font-bold text-white drop-shadow">Viral</span>
+                    </div>
+
+                    <div className="flex flex-col items-center">
+                      <div className="grid h-10 w-10 place-items-center rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white shadow-lg transition-transform hover:scale-110 active:scale-95">
+                        <TikTokIcon className="h-5 w-5 text-ice" />
+                      </div>
+                      <span className="mt-1 text-[10px] font-bold text-white drop-shadow">Share</span>
+                    </div>
+                  </div>
+
+                  {/* Bottom User Info on Phone */}
+                  <div className="absolute inset-x-4 bottom-5 z-20 pr-14 text-left">
+                    <div className="flex items-center gap-2">
+                      <span className="font-display text-sm font-extrabold text-white drop-shadow-md">@funnyvelog607</span>
+                      <span className="rounded-full bg-ice/20 p-0.5 text-ice">
+                        <svg className="h-3 w-3 fill-current" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" /></svg>
+                      </span>
+                    </div>
+                    <p className="mt-1 line-clamp-2 text-xs font-medium text-white/90 drop-shadow">
+                      Mahar Abubakar 👑 TikTok Creator & Entertainer · Punjab, Pakistan
+                    </p>
+                    <div className="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-ice">
+                      <span>🎵 Sound: Original Viral Beat - Mahar Abubakar</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom home indicator line */}
+                <div className="absolute bottom-1.5 left-1/2 -translate-x-1/2 z-30 h-1 w-28 rounded-full bg-white/40" />
               </div>
             </div>
           </div>
