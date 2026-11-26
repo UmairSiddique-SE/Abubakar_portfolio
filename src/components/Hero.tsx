@@ -90,7 +90,7 @@ export default function Hero() {
         <div className="relative z-10 text-center lg:text-left">
           <div data-reveal className="mb-6 flex flex-wrap items-center justify-center gap-3 lg:justify-start">
             <span className="flex items-center gap-2 rounded-full border border-tik/40 bg-tik/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.2em] text-tik">
-              <span className="h-2 w-2 rounded-full bg-tik animate-pulse-dot" /> Live on TikTok
+              <span className="h-2 w-2 rounded-full bg-tik animate-pulse-dot" /> TikTok Creator
             </span>
             <a
               href={SOCIALS.tiktok}
@@ -120,8 +120,7 @@ export default function Hero() {
             style={{ "--d": "220ms" } as React.CSSProperties}
             className="mx-auto mt-6 max-w-xl text-lg font-medium leading-relaxed text-fog lg:mx-0"
           >
-            Punjab ki galiyon se aapki <span className="text-cream">For You page</span> tak — desi comedy, trends aur
-            kahaniyan, <span className="grad-text font-bold">poore Mahar Squad</span> ke saath. Day-one bano, saath barho.
+            Mahar Abubakar ka official creator hub — TikTok content, Mahar Squad, community aur brand collaboration ke liye aik jagah.
           </p>
 
           <div
@@ -134,14 +133,14 @@ export default function Hero() {
               className="group flex items-center gap-2.5 rounded-2xl grad-hot px-7 py-4 font-display text-sm font-bold text-white shadow-[0_8px_36px_rgba(254,44,85,0.45)] transition-all hover:-translate-y-1 hover:shadow-[0_12px_48px_rgba(254,44,85,0.65)]"
             >
               <PlayIcon className="h-4 w-4 transition-transform group-hover:scale-125" />
-              Live Feed Dekho
+              TikTok Content Dekho
             </a>
             <a
               href="#squad"
               className="flex items-center gap-2.5 rounded-2xl border border-ice/40 bg-ice/5 px-7 py-4 font-display text-sm font-bold text-ice transition-all hover:-translate-y-1 hover:bg-ice/15 hover:shadow-[0_8px_36px_rgba(37,244,238,0.25)]"
             >
               <UsersIcon className="h-4 w-4" />
-              Meet the Squad
+              Meet the Mahar Squad
             </a>
             <a
               href={SOCIALS.tiktok}
@@ -171,8 +170,8 @@ export default function Hero() {
               ))}
             </div>
             <p className="text-left text-sm text-fog">
-              <span className="font-bold text-cream">{PROFILE.followers} day-one fans</span> — manzil 1K 🚀
-              <span className="block text-xs text-fog/70">abhi join karo, kal kehna "main pehle se tha"</span>
+              <span className="font-bold text-cream">{PROFILE.followers} followers</span> — current profile snapshot
+              <span className="block text-xs text-fog/70">Follow Mahar Abubakar on TikTok</span>
             </p>
           </div>
         </div>
@@ -192,7 +191,7 @@ export default function Hero() {
                 {/* Dynamic Island / Speaker notch */}
                 <div className="absolute top-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 rounded-full bg-black/80 px-3 py-1 backdrop-blur-md border border-white/10 shadow-lg">
                   <div className="h-2.5 w-2.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[10px] font-mono tracking-widest text-white/90 uppercase font-bold">LIVE • 4K</span>
+                  <span className="text-[10px] font-mono tracking-widest text-white/90 uppercase font-bold">OFFICIAL PROFILE</span>
                   <div className="h-2 w-2 rounded-full bg-tik" />
                 </div>
 
@@ -225,14 +224,14 @@ export default function Hero() {
                       <div className="grid h-10 w-10 place-items-center rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white shadow-lg transition-transform hover:scale-110 active:scale-95">
                         <HeartIcon className="h-5 w-5 text-tik fill-tik" />
                       </div>
-                      <span className="mt-1 text-[10px] font-bold text-white drop-shadow">99.8K</span>
+                      <span className="mt-1 text-[10px] font-bold text-white drop-shadow">{compact(PROFILE.likes)}</span>
                     </div>
 
                     <div className="flex flex-col items-center">
                       <div className="grid h-10 w-10 place-items-center rounded-full bg-black/50 backdrop-blur-md border border-white/20 text-white shadow-lg transition-transform hover:scale-110 active:scale-95">
                         <FlameIcon className="h-5 w-5 text-volt" />
                       </div>
-                      <span className="mt-1 text-[10px] font-bold text-white drop-shadow">Viral</span>
+                      <span className="mt-1 text-[10px] font-bold text-white drop-shadow">{compact(PROFILE.videos)} videos</span>
                     </div>
 
                     <div className="flex flex-col items-center">
@@ -255,7 +254,7 @@ export default function Hero() {
                       Mahar Abubakar 👑 TikTok Creator & Entertainer · Punjab, Pakistan
                     </p>
                     <div className="mt-2 flex items-center gap-1.5 text-[11px] font-semibold text-ice">
-                      <span>🎵 Sound: Original Viral Beat - Mahar Abubakar</span>
+                      <span>🎵 TikTok: {HANDLE}</span>
                     </div>
                   </div>
                 </div>
