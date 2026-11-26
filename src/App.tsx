@@ -11,6 +11,7 @@ import FanCard from "./components/FanCard";
 import FanQuests from "./components/FanQuests";
 import { Collab, FanWall, Footer } from "./components/Community";
 import MobileBottomBar from "./components/MobileBottomBar";
+import InstallPwaBanner from "./components/InstallPwaBanner";
 import { useRevealObserver, useScrollLock } from "./hooks";
 import { ArrowUp } from "./components/Icons";
 
@@ -147,6 +148,7 @@ export default function App() {
       <FanQuests />
       <BackToTop />
       <MobileBottomBar />
+      <InstallPwaBanner />
     </div>
   );
 }
