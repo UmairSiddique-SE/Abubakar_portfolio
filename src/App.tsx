@@ -100,12 +100,58 @@ function Ambient() {
   );
 }
 
+function LaunchSplash() {
+  const [phase, setPhase] = useState<"in" | "out" | "done">(() =>
+    typeof window !== "undefined" && window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "done" : "in"
+  );
+
+  useEffect(() => {
+    if (phase === "done") return;
+    const t1 = window.setTimeout(() => setPhase("out"), 750);
+    const t2 = window.setTimeout(() => setPhase("done"), 1150);
+    return () => {
+      clearTimeout(t1);
+      clearTimeout(t2);
+    };
+  }, [phase]);
+
+  if (phase === "done") return null;
+
+  return (
+    <div
+      aria-hidden="true"
+      className={`fixed inset-0 z-[200] flex flex-col items-center justify-center bg-ink transition-opacity duration-400 ease-out will-change-[opacity] ${
+        phase === "out" ? "pointer-events-none opacity-0" : "opacity-100"
+      }`}
+    >
+      <div className="relative flex flex-col items-center gap-4 animate-[fadeIn_0.35s_ease-out]">
+        <div className="relative h-20 w-20 rounded-full p-[3px] grad-brand shadow-[0_0_40px_rgba(254,44,85,0.45),0_0_60px_rgba(37,244,238,0.25)]">
+          <img
+            src="/images/abubakar-hero.jpg"
+            alt="Abubakar"
+            className="h-full w-full rounded-full object-cover"
+          />
+        </div>
+        <div className="text-center">
+          <p className="font-display text-2xl font-extrabold tracking-tight text-cream">
+            Abubakar
+          </p>
+          <p className="mt-0.5 text-[11px] font-semibold uppercase tracking-[0.28em] text-ice/90">
+            @funnyvelog607
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function App() {
   const ready = true;
   useRevealObserver(ready);
 
   return (
     <div className="min-h-screen bg-ink font-body text-cream antialiased">
+      <LaunchSplash />
       <Ambient />
       <div className="grain-overlay" aria-hidden="true" />
       <Nav />
