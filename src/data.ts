@@ -18,10 +18,10 @@ export const SOCIALS = {
 };
 
 export const STATS = [
-  { label: "Day-One Family", value: PROFILE.followers, suffix: "", icon: "users" as const, accent: "text-ice" },
+  { label: "Followers", value: PROFILE.followers, suffix: "", icon: "users" as const, accent: "text-ice" },
   { label: "Total Likes", value: PROFILE.likes, suffix: "", icon: "heart" as const, accent: "text-tik" },
-  { label: "Videos Live", value: PROFILE.videos, suffix: "", icon: "clapper" as const, accent: "text-volt" },
-  { label: "Road to 1K", value: PROFILE.goal, suffix: "", icon: "flame" as const, accent: "text-mint", goal: true },
+  { label: "Videos", value: PROFILE.videos, suffix: "", icon: "clapper" as const, accent: "text-volt" },
+  { label: "Goal", value: PROFILE.goal, suffix: "", icon: "flame" as const, accent: "text-mint", goal: true },
 ];
 
 /* ——— THE COMPLETE SQUAD (roles assigned) ———
@@ -159,7 +159,7 @@ export const PULSE = {
 export const FAQS = [
   {
     q: "Collab ka rate kya hai?",
-    a: "Day-one rates — budget ke hisaab se package banta hai. Proposal form bharo, Mahar Ilyas 48 hours mein reply karega. Early brands ko hamesha behtar deal milti hai.",
+    a: "Brand collaboration, shoutout ya event ke liye neeche proposal form use karein. Proposal aapke email app mein ready hota hai.",
   },
   {
     q: "Content kis style ka hota hai?",
@@ -167,11 +167,11 @@ export const FAQS = [
   },
   {
     q: "Videos kab upload hoti hain?",
-    a: "Hafte mein 4 drops: Peer ko Comedy, Budh ko Trend, Jummah ko Vlog aur Itwar ko Squad content — raat 9 baje. Live feed section mein nayi video khud aa jati hai.",
+    a: "Latest uploads aur current activity ke liye official TikTok profile check karein.",
   },
   {
     q: "Squad mein kaise shamil ho sakta hoon?",
-    a: "Collab form mein 'Squad Application' select karo aur apna talent batao — acting, camera, editing ya kuch naya. Raja aur Mahar brothers hamesha naye talent ko dekhte hain.",
+    a: "Squad ya collaboration request ke liye neeche Collab section mein details bhejein.",
   },
   {
     q: "Day-One member card kya cheez hai?",
@@ -233,56 +233,7 @@ export type FanComment = {
   time: string;
 };
 
-export const SEED_COMMENTS: FanComment[] = [
-  {
-    id: "c1",
-    name: "Ayesha Khan",
-    city: "Karachi",
-    message: "Bhai aap ki videos pe poora ghar hasta hai 😂 ammi bhi ab fan hain!",
-    hearts: 42,
-    time: "2h",
-  },
-  {
-    id: "c2",
-    name: "Bilal Raza",
-    city: "Lahore",
-    message: "Day-one fan here 🙌 jab 1M honge toh bolna 'main pehle se tha'!",
-    hearts: 35,
-    time: "5h",
-  },
-  {
-    id: "c3",
-    name: "Fatima Noor",
-    city: "Multan",
-    message: "Clean comedy jo family ke saath dekh saken — yehi baat alag hai ❤️",
-    hearts: 29,
-    time: "9h",
-  },
-  {
-    id: "c4",
-    name: "Ahmed Nawaz",
-    city: "Islamabad",
-    message: "Mujtaba bhai ke transitions dekh ke editing seekh raha hoon 🎬 ustaad ho!",
-    hearts: 21,
-    time: "1d",
-  },
-  {
-    id: "c5",
-    name: "Zainab Ali",
-    city: "Faisalabad",
-    message: "Abdullah bhai ke reactions best hain 😭 poori squad hi kamaal hai ✨",
-    hearts: 18,
-    time: "1d",
-  },
-  {
-    id: "c6",
-    name: "Tariq Mehmood",
-    city: "Dubai",
-    message: "Overseas Pakistani here — aap ki videos ghar ki yaad dila deti hain 🇵🇰",
-    hearts: 50,
-    time: "2d",
-  },
-];
+export const SEED_COMMENTS: FanComment[] = [];
 
 export function compact(n: number): string {
   if (n >= 1_000_000) return (n / 1_000_000).toFixed(1).replace(/\.0$/, "") + "M";
