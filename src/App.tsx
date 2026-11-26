@@ -1,10 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import Nav from "./components/Nav";
 import Hero from "./components/Hero";
-import IntroGate from "./components/IntroGate";
 import TikTokLive from "./components/TikTokLive";
 import Vibes from "./components/Vibes";
-import Pulse from "./components/Pulse";
 import About from "./components/About";
 import Squad from "./components/Squad";
 import FanCard from "./components/FanCard";
@@ -101,41 +99,19 @@ function Ambient() {
 }
 
 export default function App() {
-  const [showIntro, setShowIntro] = useState(() => {
-    try {
-      return sessionStorage.getItem("ma-intro") !== "1";
-    } catch {
-      return true;
-    }
-  });
-  const [ready, setReady] = useState(!showIntro);
+  const ready = true;
   useRevealObserver(ready);
-  useScrollLock(showIntro);
 
   return (
     <div className="min-h-screen bg-ink font-body text-cream antialiased">
       <Ambient />
       <div className="grain-overlay" aria-hidden="true" />
-      {showIntro && (
-        <IntroGate
-          onExitStart={() => setReady(true)}
-          onFinished={() => {
-            try {
-              sessionStorage.setItem("ma-intro", "1");
-            } catch {
-              /* private mode */
-            }
-            setShowIntro(false);
-          }}
-        />
-      )}
       <Nav />
       <div className="relative z-10">
         <main>
           <Hero />
           <TikTokLive />
           <Vibes />
-          <Pulse />
           <About />
           <Squad />
           <FanWall />
