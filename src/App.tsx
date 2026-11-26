@@ -11,6 +11,7 @@ import { Collab, FanWall, Footer } from "./components/Community";
 import MobileBottomBar from "./components/MobileBottomBar";
 import InstallPwaBanner from "./components/InstallPwaBanner";
 import { SpeedInsights } from "@vercel/speed-insights/react";
+import { Analytics } from "@vercel/analytics/react";
 import { useRevealObserver } from "./hooks";
 import { ArrowUp } from "./components/Icons";
 
@@ -127,6 +128,7 @@ export default function App() {
       <MobileBottomBar />
       <InstallPwaBanner />
       <SpeedInsights />
+      <Analytics />
     </div>
   );
 }
