@@ -5,10 +5,9 @@ import { XIcon } from "./Icons";
 export default function InstallPwaBanner() {
   const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
   const [visible, setVisible] = useState(false);
-  const [liveFans, setLiveFans] = useState(PROFILE.followers);
 
   useEffect(() => {
-    // Listen for PWA install event
+    // Listen for standard PWA install event
     const handler = (e: any) => {
       e.preventDefault();
       setDeferredPrompt(e);
@@ -16,21 +15,15 @@ export default function InstallPwaBanner() {
     };
     window.addEventListener("beforeinstallprompt", handler);
 
-    // If on mobile browser, show VIP app install pill after short delay if not dismissed
+    // If on mobile browser, show app install pill after short delay if not dismissed
     const timer = setTimeout(() => {
       const dismissed = sessionStorage.getItem("ma-pwa-dismiss");
       if (!dismissed) setVisible(true);
     }, 2500);
 
-    // Live follower simulation
-    const fanTimer = setInterval(() => {
-      setLiveFans((f) => f + (Math.random() > 0.7 ? 1 : 0));
-    }, 8000);
-
     return () => {
       window.removeEventListener("beforeinstallprompt", handler);
       clearTimeout(timer);
-      clearInterval(fanTimer);
     };
   }, []);
 
@@ -73,7 +66,7 @@ export default function InstallPwaBanner() {
             <span className="text-[9px] font-bold text-mint bg-mint/15 px-1.5 py-0.2 rounded">LIVE</span>
           </div>
           <p className="font-mono text-[11px] text-fog truncate">
-            <span className="text-cream font-bold">{liveFans}</span> Day-One Fans • {HANDLE}
+            <span className="text-cream font-bold">{PROFILE.followers}</span> Followers • {HANDLE}
           </p>
         </div>
 

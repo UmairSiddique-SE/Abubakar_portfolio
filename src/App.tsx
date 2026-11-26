@@ -10,7 +10,7 @@ import FanQuests from "./components/FanQuests";
 import { Collab, FanWall, Footer } from "./components/Community";
 import MobileBottomBar from "./components/MobileBottomBar";
 import InstallPwaBanner from "./components/InstallPwaBanner";
-import { useRevealObserver, useScrollLock } from "./hooks";
+import { useRevealObserver } from "./hooks";
 import { ArrowUp } from "./components/Icons";
 
 type ToastItem = { id: number; msg: string };

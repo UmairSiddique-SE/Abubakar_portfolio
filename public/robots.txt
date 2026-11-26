@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://maharabubakar.pk/sitemap.xml
+Sitemap: https://abubakarportfolio-coral.vercel.app/sitemap.xml

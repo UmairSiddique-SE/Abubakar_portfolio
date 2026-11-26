@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { EMAIL, FAQS, SEED_COMMENTS, SOCIALS, type FanComment } from "../data";
+import { EMAIL, FAQS, PROFILE, SEED_COMMENTS, SOCIALS, type FanComment } from "../data";
 import { loadJSON, saveJSON, toast } from "../hooks";
 import {
   CheckIcon,
@@ -307,8 +307,8 @@ export function Collab() {
 
               <div data-reveal className="mt-10 grid max-w-md grid-cols-3 gap-3">
                 {[
-                  { n: "13", l: "Videos live" },
-                  { n: "453", l: "Total likes" },
+                  { n: `${PROFILE.videos}`, l: "Videos live" },
+                  { n: `${PROFILE.likes}`, l: "Total likes" },
                   { n: "100%", l: "Original content" },
                 ].map((s) => (
                   <div key={s.l} className="rounded-xl border border-edge bg-ink/50 p-3.5 text-center">

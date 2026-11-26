@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { HANDLE, PROFILE, SOCIALS } from "../data";
 import { toast } from "../hooks";
 import {
@@ -46,18 +46,6 @@ const FEATURED_VIDEOS = [
 export default function TikTokLive() {
   const [copied, setCopied] = useState(false);
   const [activeVideo, setActiveVideo] = useState(0);
-  const [stats, setStats] = useState(PROFILE);
-
-  // Live simulation to show dynamic updating followers/likes like real TikTok
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setStats((prev) => ({
-        ...prev,
-        likes: prev.likes + (Math.random() > 0.6 ? 1 : 0),
-      }));
-    }, 6000);
-    return () => clearInterval(timer);
-  }, []);
 
   const copyHandle = async () => {
     try {
@@ -70,7 +58,7 @@ export default function TikTokLive() {
     }
   };
 
-  const pct = Math.max(2.5, (stats.followers / stats.goal) * 100);
+  const pct = Math.max(2.5, (PROFILE.followers / PROFILE.goal) * 100);
 
   return (
     <section id="live" className="relative overflow-hidden border-t border-edge py-24 lg:py-32">
@@ -130,9 +118,9 @@ export default function TikTokLive() {
 
             <div className="relative mt-6 grid grid-cols-3 gap-2 text-center">
               {[
-                { n: stats.followers, l: "Followers", icon: UsersIcon, c: "text-ice" },
-                { n: stats.likes, l: "Likes", icon: HeartIcon, c: "text-tik" },
-                { n: stats.videos, l: "Videos", icon: PlayIcon, c: "text-volt" },
+                { n: PROFILE.followers, l: "Followers", icon: UsersIcon, c: "text-ice" },
+                { n: PROFILE.likes, l: "Likes", icon: HeartIcon, c: "text-tik" },
+                { n: PROFILE.videos, l: "Videos", icon: PlayIcon, c: "text-volt" },
               ].map((s) => (
                 <div key={s.l} className="rounded-xl border border-edge bg-ink/60 px-2 py-3 transition-transform hover:scale-105">
                   <s.icon className={`mx-auto mb-1 h-4 w-4 ${s.c}`} />
@@ -147,7 +135,7 @@ export default function TikTokLive() {
                 <span className="flex items-center gap-1.5 text-mint">
                   <FlameIcon className="h-3.5 w-3.5" /> Road to 1K
                 </span>
-                <span className="text-fog font-mono">{stats.followers} / {stats.goal}</span>
+                <span className="text-fog font-mono">{PROFILE.followers} / {PROFILE.goal}</span>
               </div>
               <div className="mt-2.5 h-2.5 overflow-hidden rounded-full bg-ink/80">
                 <div
@@ -155,7 +143,7 @@ export default function TikTokLive() {
                   style={{ width: `${pct}%` }}
                 />
               </div>
-              <p className="mt-2 text-[11.5px] text-fog">Har follow is bar ko aage barhata hai — day-one bano! 🚀</p>
+              <p className="mt-2 text-[11.5px] text-fog">Official verified metrics · Updated from TikTok profile</p>
             </div>
 
             <a
